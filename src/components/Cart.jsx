@@ -1,43 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "../context/AppContext";
 
 const Cart = () => {
-  const cartElements = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-      quantity: 3,
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-  ];
+  const { isCartClicked, setIsCartClicked, cartData } = useContext(AppContext);
   return (
     <>
       <div className="modal-wrapper"></div>
-      <div
-        className="modal-container text-center"
-        style={{ width: "30%", height: "80%" }}
-      >
+      <div className="modal-container text-center" style={{ width: "30%" }}>
         <h1 className="text-center">
-          My Cart <button className="btn btn-danger btn-sm">X</button>
+          My Cart{" "}
+          <button
+            className="btn btn-danger btn-sm"
+            onClick={() => setIsCartClicked(!isCartClicked)}
+          >
+            X
+          </button>
         </h1>
 
-        <table class="table table-striped table-hover">
+        <table className="table table-striped table-hover">
           <thead>
             <tr>
+              <th scope="col">Img</th>
               <th scope="col">Item</th>
               <th scope="col">Price</th>
               <th scope="col">Quantity</th>
@@ -45,8 +28,8 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {cartElements.map((item) => (
-              <tr key={item.name}>
+            {cartData.map((item) => (
+              <tr key={Math.random() * 10}>
                 <td>
                   <img
                     src={item.imageUrl}
@@ -57,7 +40,19 @@ const Cart = () => {
                 <td>{item.title}</td>
                 <td>{item.price}</td>
                 <td>
-                  {" "}
+                  <input
+                    type="text"
+                    maxLength="2"
+                    value={item.quantity}
+                    style={{
+                      width: "4ch",
+                      marginRight: "10px",
+                      padding: "2px 6px",
+                      fontSize: "0.9rem",
+                      textAlign: "center",
+                    }}
+                  />
+
                   <button className="btn btn-danger btn-sm">Remove</button>
                 </td>
               </tr>

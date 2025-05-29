@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import AppContext from "../context/AppContext";
 
 const Navbar = () => {
+  const { cartData, isCartClicked, setIsCartClicked } = useContext(AppContext);
   return (
     <>
       <div
@@ -22,7 +24,16 @@ const Navbar = () => {
           style={{ display: "flex", justifyContent: "end" }}
         >
           <div>
-            <button className="btn btn-sm-danger">Cart</button>
+            <button
+              type="button"
+              className="btn btn-primary position-relative"
+              onClick={() => setIsCartClicked(!isCartClicked)}
+            >
+              Cart
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {cartData.length}
+              </span>
+            </button>
           </div>
         </div>
       </div>

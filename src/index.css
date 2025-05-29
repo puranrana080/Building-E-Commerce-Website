@@ -18,11 +18,8 @@ body{
   position:fixed;
   top:40%;
   left:80%;
-
- 
   transform: translate(-50%,-50%);
-  /* max-width: 30rem; */
+  max-width: 30rem;
   background-color: rgb(212, 178, 251);
   border-radius: 10px;
-
 }
