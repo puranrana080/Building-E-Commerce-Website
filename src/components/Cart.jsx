@@ -3,12 +3,14 @@ import AppContext from "../context/AppContext";
 
 const Cart = () => {
   const { isCartClicked, setIsCartClicked, cartData } = useContext(AppContext);
-  console.log("Clikd")
+  console.log("Clikd");
   return (
     <>
-  
       <div className="modal-wrapper"></div>
-      <div className="modal-container text-center" style={{ width: "30%" }}>
+      <div
+        className="modal-container text-center table-responsive"
+        style={{ width: "30%" }}
+      >
         <h1 className="text-center">
           My Cart{" "}
           <button
@@ -45,7 +47,7 @@ const Cart = () => {
                   <input
                     type="text"
                     maxLength="2"
-                    value={item.quantity}
+                    placeholder={item.quantity}
                     style={{
                       width: "4ch",
                       marginRight: "10px",

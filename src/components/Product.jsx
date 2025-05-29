@@ -1,11 +1,15 @@
 import React,{useContext} from "react";
 import AppContext from "../context/AppContext";
+import Navbar from "./Navbar";
+import Cart from "./Cart";
 
 const Product = () => {
-  const {productsArr,addToCart} =useContext(AppContext)
+  const {productsArr,addToCart,isCartClicked} =useContext(AppContext)
  
   return (
     <>
+    <Navbar/>
+    {isCartClicked && (<Cart/>)}
       <div className="container mt-5 " style={{ width: "70%" }}>
         <div className="row">
           {productsArr.map((item) => (
