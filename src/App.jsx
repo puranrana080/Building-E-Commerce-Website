@@ -1,19 +1,16 @@
-import React, { useContext, useState } from "react";
-import Product from "./components/Product";
-import Navbar from "./components/Navbar";
-import Cart from "./components/Cart";
-import AppContext from "./context/AppContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import Home from "./components/Home.jsx";
+import About from "./components/About.jsx";
 
 const App = () => {
-
-  const { isCartClicked } = useContext(AppContext);
   return (
-    <>
-      <Navbar />
-      {isCartClicked && <Cart />}
-
-      <Product />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route  path="/about"  element={<About/>} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

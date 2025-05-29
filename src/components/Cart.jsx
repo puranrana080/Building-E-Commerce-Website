@@ -3,8 +3,10 @@ import AppContext from "../context/AppContext";
 
 const Cart = () => {
   const { isCartClicked, setIsCartClicked, cartData } = useContext(AppContext);
+  console.log("Clikd")
   return (
     <>
+  
       <div className="modal-wrapper"></div>
       <div className="modal-container text-center" style={{ width: "30%" }}>
         <h1 className="text-center">

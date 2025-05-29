@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import AppContext from "../context/AppContext";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const { cartData, isCartClicked, setIsCartClicked } = useContext(AppContext);
@@ -11,12 +12,13 @@ const Navbar = () => {
       >
         <div
           className="conatiner "
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{ display: "flex", justifyContent: "center",gap:'20px' }}
         >
-          <div className="mx-3">
-            <div>Home</div>
+          <div className="">
+            <NavLink to={'/'}>Home</NavLink>
           </div>
           <div>Product</div>
+          <NavLink to={'/about'}>  About  </NavLink>
         </div>
 
         <div
