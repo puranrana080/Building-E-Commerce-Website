@@ -1,0 +1,28 @@
+body{
+  background-color: rgb(131, 237, 253);
+  color:white
+}
+
+
+.modal-wrapper{
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  /* background-color: rgba(189,189,189,0.9); */
+}
+
+.modal-container{
+  padding:2rem 3rem;
+  position:fixed;
+  top:40%;
+  left:80%;
+
+ 
+  transform: translate(-50%,-50%);
+  /* max-width: 30rem; */
+  background-color: rgb(212, 178, 251);
+  border-radius: 10px;
+
+}

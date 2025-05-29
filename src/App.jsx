@@ -1,15 +1,16 @@
-import React from 'react'
-import Product from './components/Product'
-import Navbar from './components/Navbar'
-
+import React from "react";
+import Product from "./components/Product";
+import Navbar from "./components/Navbar";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
     <>
-    <Navbar/>
-    <Product/>
+      <Navbar />
+      <Cart />
+      <Product />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

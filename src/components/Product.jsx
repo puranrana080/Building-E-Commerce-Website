@@ -29,7 +29,7 @@ const Product = () => {
   ];
   return (
     <>
-      <div className="container">
+      <div className="container mt-5 " style={{ width: "70%" }}>
         <div className="row">
           {productsArr.map((item) => (
             <div key={item.title} className="col-md-6 mb-4">
