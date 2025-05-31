@@ -17,7 +17,7 @@ const Cart = () => {
             className="btn btn-danger btn-sm"
             onClick={() => setIsCartClicked(!isCartClicked)}
           >
-            X
+            Close
           </button>
         </h1>
 

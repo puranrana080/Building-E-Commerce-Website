@@ -8,20 +8,19 @@ const Home = () => {
   return (
     <>
       <Navbar />
-       {isCartClicked && (<Cart/>)}
-      <div className="p-4 p-md-5 mb-4 rounded text-center text-body-emphasis bg-body-secondary">
+      {isCartClicked && <Cart />}
+      <div className="p-4 p-md-5 mb-4 rounded text-center text-body-emphasis bg-body-secondary text-center">
         {" "}
-        <div className="col-lg-6 px-0">
+        <div className="col-lg-6  text-center">
           {" "}
           <h1 className="display-4 fst-italic">
             Welcome to the E-commerce home Page
           </h1>{" "}
-          <p className="lead my-3">
+          <p className="lead my-3 text-center">
             Multiple lines of text that form the lede, informing new readers
             quickly and efficiently about what’s most interesting in this post’s
             contents.
           </p>{" "}
-          
         </div>{" "}
       </div>
     </>
