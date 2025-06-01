@@ -16,11 +16,32 @@ const Navbar = () => {
           className="conatiner m-1"
           style={{ display: "flex", justifyContent: "center", gap: "20px" }}
         >
-          <NavLink to={"/"}>Home</NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to={"/"}
+          >
+            Home
+          </NavLink>
 
-          <NavLink to={"/products"}>Product</NavLink>
-          <NavLink to={"/about"}> About </NavLink>
-          <NavLink to={"/contact"}>Cantact Us</NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to={"/products"}
+          >
+            Product
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to={"/about"}
+          >
+            {" "}
+            About{" "}
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to={"/contact"}
+          >
+            Cantact Us
+          </NavLink>
         </div>
 
         {isOnProductPage && (

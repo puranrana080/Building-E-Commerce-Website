@@ -1,15 +1,16 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import AppContext from "../context/AppContext";
 import Navbar from "./Navbar";
 import Cart from "./Cart";
+import { Link } from "react-router-dom";
 
 const Product = () => {
-  const {productsArr,addToCart,isCartClicked} =useContext(AppContext)
- 
+  const { productsArr, addToCart, isCartClicked } = useContext(AppContext);
+
   return (
     <>
-    <Navbar/>
-    {isCartClicked && (<Cart/>)}
+      <Navbar />
+      {isCartClicked && <Cart />}
       <div className="container mt-5 " style={{ width: "70%" }}>
         <div className="row">
           {productsArr.map((item) => (
@@ -17,15 +18,24 @@ const Product = () => {
               <div className="heading-container text-center">
                 <h1>{item.title}</h1>
               </div>
-              <div className="img-container">
+              <Link
+                className="img-container product-img-wrapper"
+                to={`/product/${item.title}`}
+              >
                 <img
                   src={item.imageUrl}
                   alt="loading"
-                  className="img-fluid d-block mx-auto"
+                  className="img-fluid d-block mx-auto product-img"
                 />
-              </div>
+              </Link>
               <div className="price-conatiner text-center">
-                <h3>Price: {item.price}</h3><button className="btn btn-warning" onClick={()=>addToCart(item.title)} >Add To Cart</button>
+                <h3>Price: {item.price}</h3>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => addToCart(item.title)}
+                >
+                  Add To Cart
+                </button>
               </div>
             </div>
           ))}

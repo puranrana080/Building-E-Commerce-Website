@@ -4,6 +4,15 @@ body{
   
   
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+.active {
+  font-weight: bold;
+  color: red;
+  border-bottom: 2px solid red;
+}
 
 
 .modal-wrapper{
@@ -24,4 +33,19 @@ body{
   max-width: 30rem;
   background-color: rgb(212, 178, 251);
   border-radius: 10px;
+}
+
+.product-img-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.product-img {
+  transition: transform 0.3s ease;
+}
+
+.product-img:hover {
+  transform: scale(1.2); 
 }
