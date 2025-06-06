@@ -45,12 +45,11 @@ const AppState = (props) => {
       quantity: 3,
     },
   ];
+  const initialToken = localStorage.getItem("token");
   const [isCartClicked, setIsCartClicked] = useState(false);
   const [cartData, setCartData] = useState(cartElements);
-
-  useEffect(() => {
-    console.log("Cart items", cartData);
-  }, [cartData]);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [token, setToken] = useState(initialToken);
 
   const addToCart = (name) => {
     //check if item valid
@@ -65,9 +64,9 @@ const AppState = (props) => {
       return;
     } else {
       cartData.push({ ...selectedProd, quantity: 1 });
-      const updatedData=[...cartData]
-      setCartData(updatedData)
-      alert("Item successfully added to cart")
+      const updatedData = [...cartData];
+      setCartData(updatedData);
+      alert("Item successfully added to cart");
     }
   };
 
@@ -79,6 +78,10 @@ const AppState = (props) => {
         setIsCartClicked,
         cartData,
         addToCart,
+        isLoggedIn,
+        setIsLoggedIn,
+        token,
+        setToken,
       }}
     >
       {props.children}

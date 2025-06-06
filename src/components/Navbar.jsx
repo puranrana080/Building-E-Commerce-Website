@@ -38,6 +38,13 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "active" : "")}
+            to={"/login"}
+          >
+            {" "}
+            Login{" "}
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
             to={"/contact"}
           >
             Cantact Us

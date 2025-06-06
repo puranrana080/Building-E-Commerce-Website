@@ -4,14 +4,12 @@ import Cart from "./Cart";
 import AppContext from "../context/AppContext";
 
 const Home = () => {
-  const { isCartClicked } = useContext(AppContext);
   return (
     <>
       <Navbar />
-      {isCartClicked && <Cart />}
-      <div className="p-4 p-md-5 mb-4 rounded text-center text-body-emphasis bg-body-secondary text-center">
+      <div className="container my-5" style={{ maxWidth: "70%" }}>
         {" "}
-        <div className="col-lg-6  text-center">
+        <div className="text-center">
           {" "}
           <h1 className="display-4 fst-italic">
             Welcome to the E-commerce home Page
