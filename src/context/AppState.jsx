@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useContext } from "react";
 import AppContext from "./AppContext";
 
 const AppState = (props) => {
@@ -48,8 +47,8 @@ const AppState = (props) => {
   const initialToken = localStorage.getItem("token");
   const [isCartClicked, setIsCartClicked] = useState(false);
   const [cartData, setCartData] = useState(cartElements);
-  const [isLoggedIn, setIsLoggedIn] = useState();
   const [token, setToken] = useState(initialToken);
+  const [isLoggedIn, setIsLoggedIn] = useState(token ? true : false);
 
   const addToCart = (name) => {
     //check if item valid

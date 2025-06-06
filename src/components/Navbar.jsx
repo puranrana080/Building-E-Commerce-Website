@@ -1,11 +1,27 @@
 import React, { useContext, useState } from "react";
 import AppContext from "../context/AppContext";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
   const isOnProductPage = location.pathname === "/products";
-  const { cartData, isCartClicked, setIsCartClicked } = useContext(AppContext);
+  const {
+    cartData,
+    isCartClicked,
+    setIsCartClicked,
+    isLoggedIn,
+    setToken,
+    setIsLoggedIn,
+  } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
+
   return (
     <>
       <div
@@ -26,6 +42,10 @@ const Navbar = () => {
           <NavLink
             className={({ isActive }) => (isActive ? "active" : "")}
             to={"/products"}
+            onClick={(e) => {
+              e.preventDefault();
+              if (!isLoggedIn) navigate("/login");
+            }}
           >
             Product
           </NavLink>
@@ -36,19 +56,29 @@ const Navbar = () => {
             {" "}
             About{" "}
           </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? "active" : "")}
-            to={"/login"}
-          >
-            {" "}
-            Login{" "}
-          </NavLink>
+
+          {!isLoggedIn && (
+            <>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to={"/login"}
+              >
+                {" "}
+                Login{" "}
+              </NavLink>
+            </>
+          )}
           <NavLink
             className={({ isActive }) => (isActive ? "active" : "")}
             to={"/contact"}
           >
             Cantact Us
           </NavLink>
+          {isLoggedIn && (
+            <button className="btn btn-outline-danger" onClick={handleLogout}>
+              Logout
+            </button>
+          )}
         </div>
 
         {isOnProductPage && (

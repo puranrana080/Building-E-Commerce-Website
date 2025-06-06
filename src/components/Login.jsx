@@ -31,6 +31,7 @@ const Login = () => {
           const tokenId = data.idToken;
           localStorage.setItem("token", tokenId);
           setToken(tokenId);
+          setIsLoggedIn(true);
           console.log("token generated", tokenId);
           alert("Successfully Logged In");
           navigate("/products");
