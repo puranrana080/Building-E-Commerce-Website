@@ -30,9 +30,10 @@ const Login = () => {
         return res.json().then((data) => {
           const tokenId = data.idToken;
           localStorage.setItem("token", tokenId);
+          localStorage.setItem("userEmail", data.email);
           setToken(tokenId);
           setIsLoggedIn(true);
-          console.log("token generated", tokenId);
+          console.log("token generated", data);
           alert("Successfully Logged In");
           navigate("/products");
         });

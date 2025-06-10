@@ -12,6 +12,7 @@ const Navbar = () => {
     isLoggedIn,
     setToken,
     setIsLoggedIn,
+    cartLength,
   } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -43,8 +44,10 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "active" : "")}
             to={"/products"}
             onClick={(e) => {
-              e.preventDefault();
-              if (!isLoggedIn) navigate("/login");
+              if (!isLoggedIn) {
+                e.preventDefault();
+                navigate("/login");
+              }
             }}
           >
             Product
@@ -94,7 +97,7 @@ const Navbar = () => {
               >
                 Cart
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  {cartData.length}
+                  {cartLength}
                 </span>
               </button>
             </div>

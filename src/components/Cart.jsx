@@ -1,9 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
 
 const Cart = () => {
-  const { isCartClicked, setIsCartClicked, cartData } = useContext(AppContext);
-  console.log("Clikd");
+  const { isCartClicked, setIsCartClicked, setCartLength } =
+    useContext(AppContext);
+  const [cartData, setCartData] = useState([]);
+  let userEmail = localStorage.getItem("userEmail");
+  const useremailid = userEmail.replace(/[@.]/g, "");
+  useEffect(() => {
+    fetch(
+      `https://crudcrud.com/api/9c1c991d66864cb59e837961dcfb1bcf/cart${useremailid}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setCartData(data);
+      })
+      .catch((err) => {
+        console.error("Error fetching cart:", err);
+      });
+  }, [useremailid]);
   return (
     <>
       <div className="modal-wrapper"></div>
@@ -33,7 +48,7 @@ const Cart = () => {
           </thead>
           <tbody>
             {cartData.map((item) => (
-              <tr key={Math.random() * 10}>
+              <tr key={item._id}>
                 <td>
                   <img
                     src={item.imageUrl}
